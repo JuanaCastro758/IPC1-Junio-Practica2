@@ -131,4 +131,18 @@ public class Practica_2{
             }
         }
     }
+    //metodo que muestra los clientes inscritos en el negocio
+    //metodo registra a los clientes nuevos
+   public void mostraClientes(int[] id,String[] nombre,int[] telefono){
+        System.out.println("\n\nClientes Registrados");
+        System.out.println("\nID               Nombre               telefono");
+        for(int i=0;i<id.length;i++){
+            if(nombre[i]==null){
+            }else{
+                System.out.println(id[i]+"               "+nombre[i]+"               "+telefono[i]);
+            }
+        }
+    }
+    
+
 }
