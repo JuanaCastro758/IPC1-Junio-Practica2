@@ -118,4 +118,17 @@ public class Practica_2{
             }
         }while(tel_Regis!=true);
     }
+    public void crearID(int[] id,int ini,int f, int num){
+        //crea automaticamente el ID de cada cliente
+        if(num==0){
+            id[0]=random.nextInt(f-ini+1)+ini;
+        }else{
+            for(int i=0;i<num;i++){
+                int x=random.nextInt(f-ini+1)+ini;
+                if(x!=id[i]){
+                    id[num]=x;
+                }
+            }
+        }
+    }
 }
