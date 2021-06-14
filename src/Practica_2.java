@@ -12,7 +12,7 @@ public class Practica_2{
         //datos de los clientes
         int[] id_c=new int[100];
         String[] nombre_c=new String[100];
-        int[] telefono_c=new int[100];https://meet.google.com/qby-vsjk-tzy?authuser=0&hs=122
+        int[] telefono_c=new int[100];
         boolean[] peliculaPrestada_c=new boolean[100];
         //datos de la pelicula
         int[] id_p=new int[100];
@@ -30,7 +30,7 @@ public class Practica_2{
         int op;
         do{
             //Titulo del programa
-            System.out.println("\n\nMemorabilia\n");
+            System.out.println("\n\nRenta de Peliculas\n");
             //llama al metodo que visualiza las opciones que tiene 
             //el programa
             menuOpciones();
@@ -38,30 +38,32 @@ public class Practica_2{
             op=scanner.nextInt();
             //Evalua la opcion ingresada
             //para ejecutarlo
-            if(op==1){
-                mostrarPeliculasDisponible(id_p,nombre_p,anio_p,categoria_p,disponible_p);
-                aceptarPeli(id_p,id_c,peliculaPrestada_c,peliculasPrestadas,disponible_p,op_6,op_4);
-                
-            }else if(op==2){
-                devolucion(disponible_p,peliculaPrestada_c,peliculasPrestadas,op_6,op_4,nombre_p,nombre_c,id_p,id_c);
-            }else if(op==3){
-                mostrarPeliculas(id_p,nombre_p,anio_p,categoria_p,disponible_p);
-            }else if(op==4){
-                ingresoPelicula(id_p,nombre_p,anio_p,categoria_p,disponible_p,op_4);
-                op_4++;
-            }else if(op==5){
-                ordenarPeliculas(id_p,nombre_p,anio_p,categoria_p,disponible_p,op_4);
-            }else if(op==6){
-                clientesNuevos(id_c,nombre_c,telefono_c,op_6,peliculaPrestada_c);
-                op_6++;
-            }else if(op==7){
-                mostraClientes(id_c,nombre_c,telefono_c);
-            }else if(op==8){
-            }else{
-                System.out.println("OPCION INVALIDA");
+            switch(op){
+                case 1: mostrarPeliculasDisponible(id_p,nombre_p,anio_p,categoria_p,disponible_p);
+                        aceptarPeli(id_p,id_c,peliculaPrestada_c,peliculasPrestadas,disponible_p,op_6,op_4);
+                    break;
+                case 2: devolucion(disponible_p,peliculaPrestada_c,peliculasPrestadas,op_6,op_4,nombre_p,nombre_c,id_p,id_c);
+                    break;
+                case 3: mostrarPeliculas(id_p,nombre_p,anio_p,categoria_p,disponible_p);
+                    break;
+                case 4: ingresoPelicula(id_p,nombre_p,anio_p,categoria_p,disponible_p,op_4);
+                        op_4++;
+                    break;
+                case 5: ordenarPeliculas(id_p,nombre_p,anio_p,categoria_p,disponible_p,op_4);
+                    break;
+                case 6: clientesNuevos(id_c,nombre_c,telefono_c,op_6,peliculaPrestada_c);
+                        op_6++;
+                    break;
+                case 7: mostraClientes(id_c,nombre_c,telefono_c);
+                    break;
+                case 8:
+                    break;
+                default: System.out.println("OPCION INVALIDA");
+                    break;
             }
         }while(op!=0);
     }
+    
     
     public void menuOpciones(){
         //se muestra en pantalla las opciones disponibles
