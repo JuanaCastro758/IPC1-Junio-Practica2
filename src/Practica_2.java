@@ -77,5 +77,20 @@ public class Practica_2{
         System.out.println("8. Reportes");
         System.out.println("0. Cerrar");
     }
-    
+
+    //metodos que registran a los nuevos clientes del negocio
+    public void clientesNuevos(int[] id,String[] nombre,int[] telefono,int nClientes,boolean[] peliculaPrestada){
+        crearID(id,100,999,nClientes);
+        //pide el nombre
+        System.out.print("\n\nNombre del Nuevo Cliente: ");
+        nombre[nClientes]=scanner.next();
+        peliculaPrestada[nClientes]=false;
+        //metodo para registrar telefono nuevo
+        registrarTelefono(telefono,nClientes);
+        
+        System.out.println("\n Informacion del nuevo cliente \n");
+        System.out.println("Codigo (id): "+ id[nClientes]);
+        System.out.println("Nombre: "+nombre[nClientes]);
+        System.out.println("Telefono: "+telefono[nClientes]);
+    }
 }
