@@ -223,7 +223,73 @@ public class Practica_2{
             }
         }
     }
-    
+    //el proceso para guardar cambios en los estados
+    private void aceptarPeli(int[] id_p, int[] id_c, boolean[] peliculaPrestada_c, int[][] peliculasPrestadas, boolean[] disponible_p,int cCliente,int cPeli){
+        int op;
+        boolean peli_exi=false;
+        boolean disponible=false;
+        int fila2=0;
+        boolean cliente_exi=false;
+        boolean prestamo_exi=true;
+        int fila1=0;
+        do{
+            System.out.println("\n\nProcesar el alquiler de la pelicula");
+            System.out.println("0. No          1. Si");
+            op=scanner.nextInt();
+            if(op==1){
+                System.out.print("\nIngresar Codigo(id) del Cliente: ");
+                int codigoC=scanner.nextInt();
+                for(int j=0;j<cCliente;j++){
+                    if(codigoC==id_c[j]){
+                        cliente_exi=true;
+                        if(peliculaPrestada_c[j]==false){
+                            prestamo_exi=false;
+                            fila1=j;
+                        }
+                    }
+                }
+                if(cliente_exi==true && prestamo_exi==false){
+                    System.out.print("\nIngresar Codigo(id) de la Pelicula: ");
+                    int codigoP=scanner.nextInt();
+                    for(int j=0;j<cPeli;j++){
+                        if(codigoP==id_p[j]){
+                            peli_exi=true;
+                            if(disponible_p[j]==true){
+                                disponible=true;
+                                fila2=j;
+                            }
+                        }
+                    }
+                    if(peli_exi==true && disponible==true){
+                        int dias=0;
+                        do{
+                            System.out.print("¿Cuantos dias sera prestado?  ");
+                            dias=scanner.nextInt();
+                        }while(dias<=0);
+                        for(int z=0;z<peliculasPrestadas.length;z++){
+                            if(peliculasPrestadas[z][0]==0){
+                                peliculasPrestadas[z][0]=id_p[fila2];
+                                peliculasPrestadas[z][1]=id_c[fila1];
+                                peliculasPrestadas[z][2]=dias;
+                                z=100;
+                            }
+                        }
+                        disponible_p[fila2]=false;
+                        peliculaPrestada_c[fila1]=true;
+                    }else if(peli_exi==false){
+                        System.out.println("El codigo es invalido");
+                    }else if(disponible==false){
+                        System.out.println("La pelicula no esta disponible");
+                    }
+                    
+                }else if(prestamo_exi==true){
+                    System.out.print("No se puede procesar el alquile");
+                }
+            }
+                
+        }while(op!=0 && op!=1);
+    }
+
     
     
 
