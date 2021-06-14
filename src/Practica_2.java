@@ -93,4 +93,29 @@ public class Practica_2{
         System.out.println("Nombre: "+nombre[nClientes]);
         System.out.println("Telefono: "+telefono[nClientes]);
     }
+    public void registrarTelefono(int[] telefono,int nClientes){
+        boolean tel_Regis=false;
+        do{
+            System.out.print("Telefono del Nuevo Cliente: ");
+            telefono[nClientes]=scanner.nextInt();
+            if(telefono[nClientes]<100000000 &&telefono[nClientes]>9999999){
+                if(nClientes==0){
+                    tel_Regis=true;
+                }else{
+                    for(int i=0;i<nClientes;i++){
+                        if(telefono[nClientes]==telefono[i]){
+                            tel_Regis=false;
+                            System.out.println("...El telefono ya existe ");
+                            i=nClientes;
+                        }else{
+                            tel_Regis=true;
+                        }
+                    }
+                }
+            }else{
+                System.out.println("La cantidad de digitos es invalido");
+                tel_Regis=false;
+            }
+        }while(tel_Regis!=true);
+    }
 }
