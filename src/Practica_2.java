@@ -178,6 +178,41 @@ public class Practica_2{
             }
         }
     }
+    //metodo burbuja que intercambia valores
+    private void ordenarPeliculas(int[] id,String[] nombre,int[] anio,String[] categoria,boolean[] disponible,int n) {
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < n-i; j++) {
+            	//evalua el valor de la variable si es mayor a cero realiza el cambio
+                if (nombre[j].compareToIgnoreCase(nombre[j+1])>0){
+                    
+                    int tmp1 = id[j];
+                    id[j] = id[j+1];
+                    id[j+1] = tmp1;
+
+                    String tmp2 = nombre[j];
+                    nombre[j] = nombre[j+1];
+                    nombre[j+1] = tmp2;
+
+                    int tmp3 = anio[j];
+                    anio[j] = anio[j+1];
+                    anio[j+1] = tmp3;
+
+                    String tmp4 = categoria[j];
+                    categoria[j] = categoria[j+1];
+                    categoria[j+1] = tmp4;
+
+                    boolean tmp5 = disponible[j];
+                    disponible[j] = disponible[j+1];
+                    disponible[j+1] = tmp5;
+                }
+
+            }
+        }
+        System.out.println("\n¡Peliculas Ordenadas Exitosamente!");
+        
+        
+    }
+    
     
     
 
