@@ -208,9 +208,20 @@ public class Practica_2{
 
             }
         }
-        System.out.println("\n¡Peliculas Ordenadas Exitosamente!");
-        
-        
+        System.out.println("\n¡Peliculas Ordenadas Exitosamente!");   
+    }
+    //muestra las peliculas disponible en la pantalla
+    private void mostrarPeliculasDisponible(int[] id, String[] nombre, int[] anio, String[] cate, boolean[] dispo){
+        System.out.println("\n\nPeliculas Disponibles");
+        System.out.println("\nID      Nombre                Año         Categoria         Disponible");
+        String x;
+        for(int i=0;i<id.length;i++){
+            if(nombre[i]!=null){
+                if(dispo[i]==true){
+                    System.out.println(id[i]+"    "+nombre[i]+"              "+anio[i]+"         "+cate[i]+"              "+"si");
+                }
+            }
+        }
     }
     
     
