@@ -143,6 +143,24 @@ public class Practica_2{
             }
         }
     }
+    //registrar una pelicula nueva
+    public void ingresoPelicula(int[] id,String[] nombre,int[] anio,String[] categoria,boolean[] disponible,int nClientes){
+        crearID(id,1000,9999,nClientes);
+        System.out.println("\n\nRegistro de peliculas");
+        System.out.print("\nnonmbre de la pelicula: ");
+        nombre[nClientes]=scanner.next();
+        do{
+            System.out.print("Año de estreno: ");
+            anio[nClientes]=scanner.nextInt();
+            if(anio[nClientes]<1888){
+                System.out.println("----¡Año no valido! ");
+            }
+        }while(anio[nClientes]<1888);
+        System.out.print("Categoria: ");
+        categoria[nClientes]=scanner.next();
+        disponible[nClientes]=true;
+    }
+    
     
 
 }
