@@ -289,7 +289,56 @@ public class Practica_2{
                 
         }while(op!=0 && op!=1);
     }
-
+    //devuelve el estado activo de la pelicula y el inactivo al cliente, con respecto a las prestaciones
+    private void devolucion(boolean[] disponible_p, boolean[] peliculaPrestada_c, int[][] peliculasPrestadas, int op_6, int op_4,String[] nombre_p, String[] nombre_c, int[] id_p, int[] id_c) {
+        int pos_p=0;
+        int pos_c=0;
+        System.out.println("\nID        Pelicula        Id         Cliente      DiasPrestados");
+        for(int k=0;k<peliculasPrestadas.length;k++){
+            if(peliculasPrestadas[k][0]!=0){
+                for(int y=0;y<op_4;y++){
+                    if(peliculasPrestadas[k][0]==id_p[y]){
+                        pos_p=y;
+                    }
+                }
+                for(int x=0;x<op_6;x++){
+                    if(peliculasPrestadas[k][1]==id_c[x]){
+                        pos_c=x;
+                    }
+                }
+                System.out.println(peliculasPrestadas[k][0]+"        "+nombre_p[pos_p]+"         "+peliculasPrestadas[k][1]+"           "+nombre_c[pos_c]+"   "+peliculasPrestadas[k][2]);
+            }else{
+                k=100;
+            }
+        }
+        System.out.println("\nIngrese el codigo del cliente");
+        System.out.println("que va ha devolver la´pelicula");
+        int codigo=scanner.nextInt();
+        for(int k=0;k<100;k++){
+            if(peliculasPrestadas[k][1]==codigo){
+                for(int x=0;x<op_4;x++){
+                    if(peliculasPrestadas[k][0]==id_p[x]){
+                        disponible_p[x]=true;
+                    }
+                }
+                for(int x=0;x<op_6;x++){
+                    if(peliculasPrestadas[k][1]==id_c[x]){
+                        peliculaPrestada_c[x]=false;
+                        System.out.println("Se ha devuelto la pelicula con Exito");
+                        for(int j=k;j<100;j++){
+                            for(int a=0;a<3;a++){
+                                if(peliculasPrestadas[j][a]!=0){
+                                    peliculasPrestadas[j][a]=peliculasPrestadas[j+1][a];                                
+                                }
+                            }
+                        }
+                    }
+                }
+            }else if(peliculasPrestadas[k][0]==0){
+                k=100;
+            }
+        }
+    }
     
     
 
