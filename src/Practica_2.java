@@ -149,6 +149,7 @@ public class Practica_2{
         System.out.println("\n\nRegistro de peliculas");
         System.out.print("\nnonmbre de la pelicula: ");
         nombre[nClientes]=scanner.next();
+        //verifica si el año es valido
         do{
             System.out.print("Año de estreno: ");
             anio[nClientes]=scanner.nextInt();
@@ -159,6 +160,23 @@ public class Practica_2{
         System.out.print("Categoria: ");
         categoria[nClientes]=scanner.next();
         disponible[nClientes]=true;
+    }
+    private void mostrarPeliculas(int[] id,String[] nombre,int[] anio,String[] categoria,boolean[] disponible) {
+        System.out.println("\n\nPeliculas Registrados");
+        System.out.println("\nID      Nombre                 Año         Categoria         Disponible");
+        String x;
+        for(int i=0;i<id.length;i++){
+            if(nombre[i]!=null){
+                if(disponible[i]==true){
+                    x="si";
+                }else{
+                    x="no";
+                }
+                System.out.println(id[i]+"    "+nombre[i]+"              "+anio[i]+"         "+categoria[i]+"              "+x);
+            }else{
+                
+            }
+        }
     }
     
     
