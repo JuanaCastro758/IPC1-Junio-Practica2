@@ -56,7 +56,7 @@ public class Practica_2{
                     break;
                 case 7: mostraClientes(id_c,nombre_c,telefono_c);
                     break;
-                case 8:
+                case 8: cantidadPeliCategoria(categoria_p,op_4);
                     break;
                 default: System.out.println("OPCION INVALIDA");
                     break;
@@ -340,6 +340,18 @@ public class Practica_2{
         }
     }
     
-    
+    private void cantidadPeliCategoria(String[] categoria_p, int op_4){
+        String[] aux=new String[categoria_p.length];
+        int con=0;
+        for(int i=0;i<op_4;i++){
+            for(int j=0;j<op_4;j++){
+                if(categoria_p[i]!=null){
+                    if(categoria_p[i]!=categoria_p[j+1]){
+                       
+                    }
+                }
+            }
+        }
+    }
 
 }
