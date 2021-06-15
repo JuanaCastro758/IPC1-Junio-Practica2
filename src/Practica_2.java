@@ -30,7 +30,7 @@ public class Practica_2{
         int op;
         do{
             //Titulo del programa
-            System.out.println("\n\nRenta de Peliculas\n");
+            System.out.println("\n\nMemorabilia\n");
             //llama al metodo que visualiza las opciones que tiene 
             //el programa
             menuOpciones();
