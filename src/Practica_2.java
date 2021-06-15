@@ -25,6 +25,8 @@ public class Practica_2{
         //llevar el control de los clientes nuevos
         int op_6=0;
         //levar el control de las peliculas nuevas
+        //Levar el control de peliculas por categoria
+        String[] auxCat=new String[100];
         int op_4=0;
         //Titulo del programa
         int op;
@@ -56,7 +58,7 @@ public class Practica_2{
                     break;
                 case 7: mostraClientes(id_c,nombre_c,telefono_c);
                     break;
-                case 8: cantidadPeliCategoria(categoria_p,op_4);
+                case 8: cantidadPeliCategoria(categoria_p,op_4,auxCat);
                     break;
                 default: System.out.println("OPCION INVALIDA");
                     break;
@@ -159,6 +161,13 @@ public class Practica_2{
         }while(anio[nClientes]<1888);
         System.out.print("Categoria: ");
         categoria[nClientes]=scanner.next();
+        for (int i=0;i<=nClientes;i++){
+            for (int j=0;j<=nClientes;j++){
+                if (auxCat[i]!=categoria[j]){
+                    auxCat[i]=categoria[j];
+                }
+            }
+        }
         disponible[nClientes]=true;
     }
     private void mostrarPeliculas(int[] id,String[] nombre,int[] anio,String[] categoria,boolean[] disponible) {
@@ -340,17 +349,19 @@ public class Practica_2{
         }
     }
     
-    private void cantidadPeliCategoria(String[] categoria_p, int op_4){
-        String[] aux=new String[categoria_p.length];
-        int con=0;
+    private void cantidadPeliCategoria(String[] categoria_p, int op_4,String[] auxCat){
+        System.out.println("Categoria----------------Cantidad");
         for(int i=0;i<op_4;i++){
+            int s=0;
             for(int j=0;j<op_4;j++){
-                if(categoria_p[i]!=null){
-                    if(categoria_p[i]!=categoria_p[j+1]){
-                       
-                    }
+                if(auxCat[i]==categoria_p[j] && categoria_p[j]!=null){
+                    s++;
                 }
             }
+            if(auxCat[i]!=null){
+                System.out.println(auxCat[i]+"              "+s);  
+            }
+            
         }
     }
 
